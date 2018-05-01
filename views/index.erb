@@ -1,0 +1,22 @@
+<div class='container'>
+  <form action='/' method='post'>
+    <input id='autocomplete' name='autocomplete' type='text' placeholder='Enter the address' />
+
+    <input id='address' name='region' type='hidden' />
+    <input id='region' name='region' type='hidden' />
+
+    <input id='lat' name='lat' type='hidden' />
+    <input id='lng' name='lng' type='hidden' />
+
+    <input id='ne_lat' name='ne_lat' type='hidden' />
+    <input id='ne_lng' name='ne_lng' type='hidden' />
+    <input id='sw_lat' name='sw_lat' type='hidden' />
+    <input id='sw_lng' name='sw_lng' type='hidden' />
+
+    <!-- <input type='submit' name='commit' value='Calculate' /> -->
+  </form>
+
+  <% if @result %>
+    The difference for <%= @result.market %> is <%= @result.average_income %>
+  <% end %>
+</div>

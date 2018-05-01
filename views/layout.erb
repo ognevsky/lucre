@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lucre</title>
+
+    <style>
+      div.container {
+        margin: 300px auto;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      input {
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <script>
+      function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+          (document.getElementById('autocomplete')),
+          {types: ['geocode']});
+
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        var place = autocomplete.getPlace();
+
+        document.getElementById('region').value = place.name
+        document.getElementById('address').value = place.formatted_address
+
+        document.getElementById('lat').value = place.geometry.location.lat()
+        document.getElementById('lng').value = place.geometry.location.lng()
+
+        document.getElementById('ne_lat').value = place.geometry.location.lat()
+        document.getElementById('ne_lng').value = place.geometry.location.lng()
+        document.getElementById('sw_lat').value = place.geometry.location.lat()
+        document.getElementById('sw_lng').value = place.geometry.location.lng()
+
+        console.log(place);
+      }
+    </script>
+
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyARkTMbnRjE41IN7qbWBJ_mGnFD9sTri88&libraries=places&callback=initAutocomplete'
+      async defer></script>
+  </body>
+</html>
