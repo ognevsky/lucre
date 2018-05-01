@@ -1,6 +1,6 @@
 <div class='container'>
   <form action='/' method='post'>
-    <input id='autocomplete' name='autocomplete' type='text' placeholder='Enter the address' />
+    <input id='autocomplete' name='autocomplete' type='text' placeholder='City' />
 
     <input id='address' name='region' type='hidden' />
     <input id='region' name='region' type='hidden' />
@@ -13,7 +13,8 @@
     <input id='sw_lat' name='sw_lat' type='hidden' />
     <input id='sw_lng' name='sw_lng' type='hidden' />
 
-    <!-- <input type='submit' name='commit' value='Calculate' /> -->
+    <br />
+    <input type='submit' name='commit' value='Calculate' />
   </form>
 
   <% if @result %>
