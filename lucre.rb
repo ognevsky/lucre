@@ -1,13 +1,12 @@
 require 'sinatra'
-require_relative 'lib/parsimony'
-
+require_relative './lib/request'
 
 get '/' do
   erb :index
 end
 
 post '/' do
-  @result = Parsimony.find(params['address'], params['lat'], params['lng'])
+  @result = Request.new(params['address'], params['lat'], params['lng']).wmpw_data
 
   erb :index
 end
